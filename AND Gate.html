@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AND Gate</title>
+
+    <style>
+        .header {
+            background-color: DodgerBlue;
+            text-align: center;
+            font-size: 35px;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 70px;
+            right: 70px;
+        }
+
+        .top-right ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-right a {
+		    background-color: SkyBlue;
+            color: black;
+        }
+
+        .main-content {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-right">
+    <ul>
+        <li><a href="Not Gate.html">NOT Gate</a></li>
+        <li><a href="AND Gate.html">AND Gate</a></li>
+        <li><a href="AND Gate -easy version.html">AND Gate -easy version</a></li>
+        <li><a href="Binary to Hexiecimal.html">Binary to Hexidecimal Converter</a></li>
+        <li><a href="ASCLL converter.html">ASCII Converter</a></li>
+        <li><a href="UNICODE coverter.html">UNICODE Converter</a></li>
+        <li><a href="Machine Language.html">Machine language Instructions Converter</a></li>
+    </ul>
+</div>
+
+    <!-- Main heading -->
+    <h1 class="header">AND Gate</h1>
+
+    <!-- Introduction -->
+    <div class="main-content">
+	
+	<!DOCTYPE html>
+<html>
+<head>
+    <title>AND Gate Simulator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f1f4f6;
+            font-family: Arial, sans-serif;
+            color: #222;
+        }
+
+        /* TOP BAR */
+        .topbar {
+            background: #087fa3;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .runButton {
+            background: #08a36c;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .runButton:hover {
+            background: #067d54;
+        }
+
+        .resetButton {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 25px 0 5px;
+            color: #087fa3;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* SIMULATOR */
+        .simulator {
+            width: 1100px;
+            max-width: 95%;
+            height: 500px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px #bbb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* INPUT LABELS */
+        .inputLabel {
+            position: absolute;
+            left: 25px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .inputA {
+            top: 125px;
+        }
+
+        .inputB {
+            top: 285px;
+        }
+
+        .inputValue {
+            position: absolute;
+            left: 90px;
+            width: 55px;
+            text-align: center;
+            font-size: 42px;
+            font-weight: bold;
+        }
+
+        #valueA {
+            top: 110px;
+        }
+
+        #valueB {
+            top: 270px;
+        }
+
+        /* WIRES */
+        .wire {
+            position: absolute;
+            height: 16px;
+            background: #111;
+            border-top: 4px solid #36c99a;
+            border-bottom: 4px solid #36c99a;
+        }
+
+        #wireA {
+            left: 150px;
+            top: 135px;
+            width: 390px;
+        }
+
+        #wireB {
+            left: 150px;
+            top: 295px;
+            width: 390px;
+        }
+
+        #wireOut {
+            left: 735px;
+            top: 215px;
+            width: 310px;
+        }
+
+        /* AND GATE */
+        .gate {
+            position: absolute;
+            left: 530px;
+            top: 80px;
+            width: 210px;
+            height: 290px;
+
+            background: #e4e9ed;
+
+            border: 8px solid #36c99a;
+            border-left: 8px solid #36c99a;
+
+            border-radius: 0 150px 150px 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Georgia, serif;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        /* OUTPUT */
+        .outputLabel {
+            position: absolute;
+            right: 25px;
+            top: 165px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #outputValue {
+            position: absolute;
+            right: 65px;
+            top: 205px;
+            font-size: 42px;
+            font-weight: bold;
+        }
+
+        /* SIGNALS */
+        .signal {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #00ff99;
+            box-shadow: 0 0 15px #00ff99;
+            display: none;
+            z-index: 10;
+        }
+
+        #signalA {
+            top: 132px;
+        }
+
+        #signalB {
+            top: 292px;
+        }
+
+        #signalOut {
+            top: 212px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes signalAanimation {
+            from {
+                left: 150px;
+            }
+
+            to {
+                left: 520px;
+            }
+        }
+
+        @keyframes signalBanimation {
+            from {
+                left: 150px;
+            }
+
+            to {
+                left: 520px;
+            }
+        }
+
+        @keyframes signalOutanimation {
+            from {
+                left: 735px;
+            }
+
+            to {
+                left: 1020px;
+            }
+        }
+
+        .moveA {
+            display: block;
+            animation: signalAanimation 1.5s linear forwards;
+        }
+
+        .moveB {
+            display: block;
+            animation: signalBanimation 1.5s linear forwards;
+        }
+
+        .moveOut {
+            display: block;
+            animation: signalOutanimation 1.5s linear forwards;
+        }
+
+        /* EXPLANATION */
+        .explanation {
+            width: 1100px;
+            max-width: 95%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+            text-align: center;
+        }
+
+        #stepTitle {
+            color: #087fa3;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        #explanationText {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        /* TRUTH TABLE */
+        .truthSection {
+            width: 600px;
+            max-width: 95%;
+            margin: 20px auto 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        .truthSection h2 {
+            text-align: center;
+            color: #087fa3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        th {
+            background: #087fa3;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+
+        .activeRow {
+            background: #a8f5d6;
+            font-weight: bold;
+            transform: scale(1.02);
+        }
+
+        /* STATUS */
+        #status {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+
+        <button class="runButton" onclick="runSimulation()">
+            ▶ RUN
+        </button>
+
+        <button class="resetButton" onclick="resetSimulation()">
+            RESET
+        </button>
+
+    </div>
+
+
+    <h1>AND GATE LOGIC SIMULATOR</h1>
+	
+<section>
+<a href="index.html">BACK home</a>
+</section>
+
+    <p class="subtitle">
+        Watch how an AND gate processes two binary inputs.
+    </p>
+
+
+    <!-- CIRCUIT -->
+    <div class="simulator">
+
+        <!-- INPUT LABELS -->
+        <div class="inputLabel inputA">INPUT A</div>
+        <div class="inputLabel inputB">INPUT B</div>
+
+        <!-- INPUT VALUES -->
+        <div id="valueA" class="inputValue">0</div>
+        <div id="valueB" class="inputValue">0</div>
+
+        <!-- WIRES -->
+        <div id="wireA" class="wire"></div>
+        <div id="wireB" class="wire"></div>
+        <div id="wireOut" class="wire"></div>
+
+
+        <!-- AND GATE -->
+        <div class="gate">
+            AND
+        </div>
+
+
+        <!-- OUTPUT -->
+        <div class="outputLabel">OUTPUT</div>
+        <div id="outputValue">0</div>
+
+
+        <!-- MOVING SIGNALS -->
+        <div id="signalA" class="signal"></div>
+        <div id="signalB" class="signal"></div>
+        <div id="signalOut" class="signal"></div>
+
+    </div>
+
+
+    <!-- STATUS -->
+    <div id="status">
+        Press RUN to start the simulation.
+    </div>
+
+
+    <!-- EXPLANATION -->
+    <div class="explanation">
+
+        <div id="stepTitle">
+            How an AND Gate Works
+        </div>
+
+        <p id="explanationText">
+            An AND gate produces an output of 1 only when
+            <b>both inputs are 1</b>.
+        </p>
+
+    </div>
+
+
+    <!-- TRUTH TABLE -->
+    <div class="truthSection">
+
+        <h2>AND Gate Truth Table</h2>
+
+        <table>
+
+            <tr>
+                <th>INPUT A</th>
+                <th>INPUT B</th>
+                <th>OUTPUT</th>
+            </tr>
+
+            <tr id="row00">
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+
+            <tr id="row01">
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+
+            <tr id="row10">
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+
+            <tr id="row11">
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+<script>
+
+let simulationRunning = false;
+
+
+/* WAIT FUNCTION */
+
+function wait(milliseconds) {
+
+    return new Promise(resolve => {
+
+        setTimeout(resolve, milliseconds);
+
+    });
+
+}
+
+
+/* REMOVE HIGHLIGHT */
+
+function clearRows() {
+
+    document.getElementById("row00").classList.remove("activeRow");
+    document.getElementById("row01").classList.remove("activeRow");
+    document.getElementById("row10").classList.remove("activeRow");
+    document.getElementById("row11").classList.remove("activeRow");
+
+}
+
+
+/* SHOW INPUTS */
+
+function showInputs(a, b) {
+
+    document.getElementById("valueA").innerHTML = a;
+    document.getElementById("valueB").innerHTML = b;
+
+}
+
+
+/* RUN ONE TEST */
+
+async function testCombination(a, b, row, explanation) {
+
+    clearRows();
+
+    document.getElementById(row).classList.add("activeRow");
+
+    showInputs(a, b);
+
+    document.getElementById("outputValue").innerHTML = "?";
+
+    document.getElementById("outputValue").style.color = "#087fa3";
+
+    document.getElementById("stepTitle").innerHTML =
+        "Testing: " + a + " AND " + b;
+
+    document.getElementById("explanationText").innerHTML =
+        explanation;
+
+    document.getElementById("status").innerHTML =
+        "Sending signals through the circuit...";
+
+
+    /* RESET SIGNALS */
+
+    let signalA = document.getElementById("signalA");
+    let signalB = document.getElementById("signalB");
+    let signalOut = document.getElementById("signalOut");
+
+    signalA.className = "signal";
+    signalB.className = "signal";
+    signalOut.className = "signal";
+
+
+    await wait(500);
+
+
+    /* INPUT A */
+
+    if (a == 1) {
+
+        signalA.classList.add("moveA");
+
+    }
+
+    /* INPUT B */
+
+    if (b == 1) {
+
+        signalB.classList.add("moveB");
+
+    }
+
+
+    await wait(1800);
+
+
+    /* CALCULATE */
+
+    let output = a && b;
+
+
+    document.getElementById("stepTitle").innerHTML =
+        "AND Gate is Processing...";
+
+    document.getElementById("explanationText").innerHTML =
+        "The AND gate checks both inputs. " +
+        "The output can only become 1 when BOTH inputs are 1.";
+
+
+    await wait(1200);
+
+
+    /* OUTPUT SIGNAL */
+
+    if (output == 1) {
+
+        signalOut.className = "signal moveOut";
+
+        document.getElementById("status").innerHTML =
+            "Both inputs are HIGH → Output is HIGH";
+
+    } else {
+
+        document.getElementById("status").innerHTML =
+            "At least one input is LOW → Output is LOW";
+
+    }
+
+
+    document.getElementById("outputValue").innerHTML =
+        output ? "1" : "0";
+
+
+    document.getElementById("outputValue").style.color =
+        output ? "#00a66a" : "#222";
+
+
+    await wait(1600);
+
+
+    /* EXPLANATION */
+
+    if (a == 1 && b == 1) {
+
+        document.getElementById("stepTitle").innerHTML =
+            "OUTPUT = 1";
+
+        document.getElementById("explanationText").innerHTML =
+            "Both Input A and Input B are 1. " +
+            "Therefore, the AND gate produces an output of 1.";
+
+    } else {
+
+        document.getElementById("stepTitle").innerHTML =
+            "OUTPUT = 0";
+
+        document.getElementById("explanationText").innerHTML =
+            "At least one input is 0. " +
+            "Therefore, the AND gate produces an output of 0.";
+
+    }
+
+}
+
+
+/* RUN COMPLETE SIMULATION */
+
+async function runSimulation() {
+
+    if (simulationRunning) {
+
+        return;
+
+    }
+
+    simulationRunning = true;
+
+    document.querySelector(".runButton").innerHTML =
+        "⏳ RUNNING...";
+
+
+    /* 00 */
+
+    await testCombination(
+
+        0,
+        0,
+        "row00",
+
+        "<b>Input A = 0</b> and <b>Input B = 0</b>." +
+        "<br><br>" +
+        "Neither input is HIGH, so the AND gate produces 0."
+
+    );
+
+
+    await wait(1000);
+
+
+    /* 01 */
+
+    await testCombination(
+
+        0,
+        1,
+        "row01",
+
+        "<b>Input A = 0</b> and <b>Input B = 1</b>." +
+        "<br><br>" +
+        "Only Input B is HIGH. Both inputs must be HIGH, so the output is 0."
+
+    );
+
+
+    await wait(1000);
+
+
+    /* 10 */
+
+    await testCombination(
+
+        1,
+        0,
+        "row10",
+
+        "<b>Input A = 1</b> and <b>Input B = 0</b>." +
+        "<br><br>" +
+        "Only Input A is HIGH. The AND gate still produces 0."
+
+    );
+
+
+    await wait(1000);
+
+
+    /* 11 */
+
+    await testCombination(
+
+        1,
+        1,
+        "row11",
+
+        "<b>Input A = 1</b> and <b>Input B = 1</b>." +
+        "<br><br>" +
+        "Both inputs are HIGH! Therefore, the AND gate produces 1."
+
+    );
+
+
+    await wait(1500);
+
+
+    /* FINISHED */
+
+    document.getElementById("stepTitle").innerHTML =
+        "Simulation Complete!";
+
+    document.getElementById("explanationText").innerHTML =
+        "The simulation tested all four possible input combinations. " +
+        "Remember: an AND gate outputs <b>1 only when BOTH inputs are 1</b>.";
+
+    document.getElementById("status").innerHTML =
+        "✓ All four combinations have been tested.";
+
+    document.querySelector(".runButton").innerHTML =
+        "▶ RUN AGAIN";
+
+    simulationRunning = false;
+
+}
+
+
+/* RESET */
+
+function resetSimulation() {
+
+    simulationRunning = false;
+
+    document.getElementById("valueA").innerHTML = "0";
+    document.getElementById("valueB").innerHTML = "0";
+    document.getElementById("outputValue").innerHTML = "0";
+
+    document.getElementById("outputValue").style.color = "#222";
+
+    document.getElementById("stepTitle").innerHTML =
+        "How an AND Gate Works";
+
+    document.getElementById("explanationText").innerHTML =
+        "An AND gate produces an output of 1 only when " +
+        "<b>both inputs are 1</b>.";
+
+    document.getElementById("status").innerHTML =
+        "Press RUN to start the simulation.";
+
+    clearRows();
+
+    document.getElementById("signalA").className = "signal";
+    document.getElementById("signalB").className = "signal";
+    document.getElementById("signalOut").className = "signal";
+
+    document.querySelector(".runButton").innerHTML =
+        "▶ RUN";
+
+}
+
+</script>
+
+</body>
+</html>
