@@ -5,16 +5,26 @@
     <title>DEVTeam</title>
 
     <style>
+	 body {
+    font-family: Arial, sans-serif;
+    background-image: url("tech.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
         .header {
             background-color: DodgerBlue;
             text-align: center;
-            font-size: 35px;
+            font-size: 40px;
             margin: 0;
-            padding: 10px;
+            padding: 30px;
         }
 
         .top-right {
             position: absolute;
+			font-size: 20px;
             top: 20px;
             right: 20px;
         }
@@ -34,6 +44,21 @@
         .main-content {
             margin-top: 30px;
         }
+		.main-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.main-content img {
+    border-radius: 10px;
+}
+
+.main-content p {
+    font-size: 20px;
+    text-align: left;
+}
     </style>
 </head>
 
@@ -42,11 +67,11 @@
 <div class="top-right">
     <ul>
         <li><a href="index.html">Hello</a></li>
-        <li><a href="Course.html">Course</a></li>
-        <li><a href="Project.html">Project</a></li>
-        <li><a href="Concept.html">Concept</a></li>
-        <li><a href="Database.html">Databasr</a></li>
-        <li><a href="Documentation.html">Documentation</a></li>
+        <li><a href="course.html">Course</a></li>
+        <li><a href="project.html">Project</a></li>
+        <li><a href="concept.html">Concept</a></li>
+        <li><a href="database.html">Databasr</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
     </ul>
 </div>
 
@@ -54,6 +79,10 @@
     <h1 class="header">DEVTeam</h1>
 
     <!-- Introduction -->
-    <div class="main-content">
+    <div class="main-content">               
+	 <img src="photo.jpg" height="400">
 	
-<p style="text-align: center;">This section contains information about the people who developed the project.</p>
+<p style="text-align: center;  background-color: lightblue;
+          padding: 20px;
+          border-radius: 10px;">Hello my name is Ismael Espinoza, I'm a very introverted kind guy. 
+I'm really creative, I'm an artist, love drawing and painting; I'm hopeful for the future as an IT worker.</p>

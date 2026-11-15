@@ -50,6 +50,8 @@
         <li><a href="UNICODE coverter.html">UNICODE Converter</a></li>
         <li><a href="Machine Language.html">Machine language Instructions Converter</a></li>
 		<li><a href="Even.html">Even sum</a></li>
+		<li><a href="Odd.html">Odd sum</a></li>
+		<li><a href="fac.html">Factorial</a></li>
     </ul>
 </div>
 
@@ -62,28 +64,26 @@
 <p> Enter a number </p>
 
   <input type="number" id="num1"> 
-  <button onclick="add()">Add</button>
+  <button onclick="add()">=</button>
  
 <p>The sum of the numbers you enter. This will find the even numbers and ADD them if there multiple of them. </p>
 
-  <h2 id="result"></h2>
+  <h2 id="result">0</h2>
 
   <script>
-  
-    let sum = 0;
-	
 	function add() {
-	 let sum = 0;
+	let sum = 0;
 	let n1 = +document.getElementById('num1').value;
 	
-	if (n1 % 2 == 0){
-	sum += n1;
+	let i = 2;
+	while(i <= n1){
+	sum += i;
+	i += 2;
+	
 	}
     
 	let resultElement = document.getElementById('result');
 	resultElement.textContent = sum;
-	
-	document.getElementById('num1').value = "";
 	}
   </script>
 

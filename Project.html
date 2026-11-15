@@ -5,16 +5,55 @@
     <title>Project</title>
 
     <style>
+	
+.link-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 20px;
+}
+
+.link-boxes li {
+    background-color: DodgerBlue;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 220px;
+}
+
+.link-boxes a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.link-boxes li:hover {
+    background-color: RoyalBlue;
+}
+
+	
+	 body {
+    font-family: Arial, sans-serif;
+    background-image: url("tech.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
         .header {
             background-color: DodgerBlue;
             text-align: center;
-            font-size: 35px;
+            font-size: 40px;
             margin: 0;
-            padding: 10px;
+            padding: 30px;
         }
 
         .top-right {
             position: absolute;
+		    font-size: 20px;
             top: 20px;
             right: 20px;
         }
@@ -52,14 +91,22 @@
 
     <!-- Main heading -->
     <h1 class="header">Project</h1>
+	
+	<div style="text-align: center;">
+    <img src="work.gif" width="15%">
+</div>
 
     <!-- Introduction -->
     <div class="main-content">
-	<p style="text-align: center;">
-        This project is about creating a website using HTML.
-        The goal is to demonstrate what I have learned during the course.
+	<p style="text-align: center; font-size: 20px;  background-color: lightblue;
+          padding: 20px;
+          border-radius: 10px;">
+        The final project will consist of 4 sections. Each section has a deadline to complete. 
+		A complete description of the project can be found on the course moodle site. 
+		It will consist of launching a website built with, html, css, and javascript and hosted on github. 
+		This site is a benchmark for the Final Project. See Project Specification on Moodle Site.
     </p>
-    <ul>
+    <ul class="link-boxes">
         <li><a href="Not Gate.html">NOT Gate</a></li>
         <li><a href="AND Gate.html">AND Gate</a></li>
         <li><a href="AND Gate -easy version.html">AND Gate -easy version</a></li>
@@ -68,6 +115,8 @@
         <li><a href="UNICODE coverter.html">UNICODE Converter</a></li>
         <li><a href="Machine Language.html">Machine language Instructions Converter</a></li>
 		<li><a href="Even.html">Even sum</a></li>
+		<li><a href="Odd.html">Odd sum</a></li>
+		<li><a href="fac.html">Factorial</a></li>
     </ul>
     
 
